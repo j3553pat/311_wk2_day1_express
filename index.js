@@ -1,5 +1,6 @@
 
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT || 4000
 
@@ -16,14 +17,14 @@ app.get("/users/1", (req, res) => {
 })
 
 app.post("/users", (req, res) => {
-  anotherUser = {
+ let anotherUser = {
     "_id": 6,
     "name": "Arthur Morgan",
     "occupation": "Cowboy",
     "avatar": "https://www.giantbomb.com/images/1300-3058153"
   }
   users.push(anotherUser);
-  return res.json(users);
+  res.json(users);
 })
 
 app.put('/users/1', (req, res) => {
